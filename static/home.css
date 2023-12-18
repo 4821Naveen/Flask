@@ -1,0 +1,50 @@
+body{
+    background-image: url(/static/image/bk.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+  }
+  
+  .registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(252, 251, 251, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(222, 221, 221, 0.37);
+  }
+  
+  .header {
+    display: flex;
+    height: 60px;
+    width: 100vw;
+  }
+  
+  .header>div {
+    padding: 12px;
+  }
+  
+  .header__logo {
+    display: flex;
+    justify-content: flex-start;
+  
+  }
+  
+  .header__logo>img {
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .header__logo>span {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+  }
+P{
+    color: rgb(255, 255, 255);
+}
