@@ -6,17 +6,17 @@ app = Flask(__name__)
 
 # MySQL configuration
 db_config = {
-    'host': '127.0.0.1',
-    'user': 'root',
-    'password': '',
-    'database': 'my_database'
+    'host': ' sql11.freesqldatabase.com',
+    'user': 'sql11671602',
+    'password': '4fmyucg7Ar',
+    'database': 'sql11671602'
 }
 
 @app.route('/', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         username = request.form['username']
-        emil_id = request.form['enter_emil']
+        email_id = request.form['enter_email']
         mobile_number = request.form['mobile_number']
         describe_your_website = request.form['describe_your_website']
 
@@ -25,7 +25,7 @@ def signup():
         cursor = conn.cursor()
 
         # Insert user into the database
-        cursor.execute("INSERT INTO users (username, emil_id, mobile_number, describe_your_website) VALUES (%s ,%s ,%s ,%s )", (username, emil_id, mobile_number, describe_your_website))
+        cursor.execute("INSERT INTO users (username, email_id, mobile_number, describe_your_website) VALUES (%s ,%s ,%s ,%s )", (username, email_id, mobile_number, describe_your_website))
         conn.commit()
 
         # Close MySQL connection
@@ -42,3 +42,5 @@ def home():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000)
+
+#1oQ25KzvvqZwR2Bd

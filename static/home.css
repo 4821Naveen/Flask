@@ -20,23 +20,28 @@ body{
   
   .header {
     display: flex;
-    height: 60px;
+    height: 40%;
     width: 100vw;
+    object-fit: contain;
+
   }
   
   .header>div {
     padding: 12px;
+    object-fit: contain;
   }
   
   .header__logo {
     display: flex;
     justify-content: flex-start;
+    border-radius: 70px;
   
   }
   
   .header__logo>img {
-    height: 60px;
+    height: 50px;
     object-fit: contain;
+    border-radius: 70px;
   }
   
   .header__logo>span {
@@ -44,7 +49,10 @@ body{
     font-size: 20px;
     font-weight: 500;
     margin-left: 20px;
+    display: flex;
+    object-fit: contain;
+    border-radius: 70px;
   }
-P{
+  p{
     color: rgb(255, 255, 255);
-}
+  }
