@@ -4,14 +4,8 @@ import mysql.connector
 app = Flask(__name__)
 
 # Configure your MySQL connection
-db = mysql.connector.connect(
-    host=" sql8.freesqldatabase.com ",
-    user=" sql8673726",
-    password="xWplLT4LMV",
-    database="sql8673726"
-)
 
-cursor = db.cursor()
+
 
 @app.route('/')
 def index():
@@ -19,6 +13,14 @@ def index():
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
+    db = mysql.connector.connect(
+    host=" sql8.freesqldatabase.com ",
+    user=" sql8673726",
+    password="xWplLT4LMV",
+    database="sql8673726"
+    )
+    
+    cursor = db.cursor()
     name = request.form.get('name')
     email = request.form.get('email')
     mobile = request.form.get('mobile')
@@ -37,14 +39,10 @@ def submit():
     cursor.close()
     db.close()
 
-    return render_template('home.html')
+    return render_template('home.html',name=name)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000)
+     app.run(debug=True)
 
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000)
 
 #1oQ25KzvvqZwR2Bd
