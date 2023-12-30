@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NCS</title>
-    <link rel="icon" type="image/png" href="/static/image/logo.png"/>
-    <link rel="stylesheet" href="/static/main.css"/>
+    <title>Information Sheet</title>
+    <link rel="stylesheet" href="/static/styles.css"/>
+    <link rel="icon" type="image/png" href="/static/image/image2.png"/>
 </head>
 <body>
-    <div class="header">
-        <h3>Computer Solution</h3>
-        <div class="header__logo ">            
-            <img src="/static/image/logo.png" alt="#">
-        </div>
-    </div>
-    <div class="registration-form">
-        <form method="POST" accept="of">
-            <br>
-            <label for="username">Username:</label>
-            <input type="text" name="username" required>
-            <br>
-            <label for="enter_email">Enter Email:</label>
-            <input type="text" name="enter_email" required>
-            <br>
-            <label for="mobile_number">Mobile Number:</label>
-            <input type="number" name="mobile_number" required>
-            <br>
-            <label for="describe_your_website">Describe your website:</label>
+<div class="header">
+    <img src="/static/image/image2.png" alt="#">
+    <h1>Redhille</h1>
+</div>
+<div class="container">
+    <h2>Information Sheet</h2>
+    <form action="/submit" method="post">
+        <div class="typ">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+                    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-            <div class="describe_the_website">
-                <input type="text" name="describe_your_website" required>
-            </div>
-            <br>
-            <button type="submit">submit</button>
-        </form>
-    </dive>
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" required>
+        </div>
+        <div class="enter">
+        <label for="typegroup">Type Group:</label>
+        <select id="typegroup" name="typegroup" required>
+            <option value="DMO">DMO</option>
+            <option value="DCA(T)">DCA(T)</option>
+            <option value="DCA(P)">DCA(P)</option>
+            <option value="HDCA(T)">HDCA(T)</option>
+            <option value="HDCA(P)">HDCA(P)</option>
+            <option value="TALLY PRIME">TALLY PRIME</option>
+            <option value="PYTHON">PYTHON</option>
+            <option value="JAVA">JAVA</option>
+            <option value="ADPP">ADPP</option>
+            <option value="ADJP">ADJP</option>
+            <!-- Add more options as needed -->
+        </select>
+        </div>
+        <div class="gender">
+        <label>Gender:</label>
+        <label for="male">
+        <input type="radio" id="male" name="gender" value="male" required> Male</label>
+        <label for="female">
+        <input type="radio" id="female" name="gender" value="female" required> Female</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
 </body>
 </html>
