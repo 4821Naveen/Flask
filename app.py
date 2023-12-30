@@ -1,47 +1,49 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request
 import mysql.connector
 
 app = Flask(__name__)
 
+# Configure your MySQL connection
+db = mysql.connector.connect(
+    host=" sql8.freesqldatabase.com ",
+    user=" sql8673726",
+    password="xWplLT4LMV",
+    database="sql8673726"
+)
 
-# MySQL configuration
-db_config = {
-    'host': 'sql8.freesqldatabase.com ',
-    'user': 'sql8673726',
-    'password': 'xWplLT4LMV',
-    'database': 'sql8673726'
-}
+cursor = db.cursor()
 
-@app.route('/', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        mobile = request.form['mobile']
-        typegroup = request.form['typegroup']
-        gender = request.form['genter']
-
-        # Connect to MySQL
-        conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor()
-
-        # Insert user into the database
-        cursor.execute("INSERT INTO users (Name, Email, Mobile, Typegroup, Gender) VALUES (%s ,%s ,%s ,%s )", (name, email, mobile, typegroup, gender))
-        conn.commit()
-
-        # Close MySQL connection
-        cursor.close()
-        conn.close()
-
-        return redirect(url_for('home'))
-
+@app.route('/')
+def index():
     return render_template('main.html')
 
-@app.route('/home')
-def home():
+@app.route('/submit', methods=['POST'])
+def submit():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    mobile = request.form.get('mobile')
+    typegroup = request.form.get('typegroup')
+    gender = request.form.get('gender')
+
+    # Insert data into the database
+    sql = "INSERT INTO users (Name, Email, Mobile, Typegroup, Gender) VALUES (%s, %s, %s, %s, %s)"
+    values = (name, email, mobile, typegroup, gender)
+    cursor.execute(sql, values)
+
+    # Commit the changes
+    db.commit()
+
+    # Close the cursor and database connection
+    cursor.close()
+    db.close()
+
     return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000)
+
+
+
+
 
 #1oQ25KzvvqZwR2Bd
