@@ -17,7 +17,7 @@ cursor = db.cursor()
 def index():
     return render_template('main.html')
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['GET', 'POST'])
 def submit():
     name = request.form.get('name')
     email = request.form.get('email')
